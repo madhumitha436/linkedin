@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turn Your LinkedIn into a Personal Brand People Remember</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --burgundy: #50021d;
+    --burgundy-soft: #6a5b56;
+    --dark: #1e1b1a;
+    --text: #554245;
+    --cream: #faf2f0;
+    --cream-2: #f4ecea;
+    --cream-3: #f5efeb;
+    --accent: #f0dbd4;
+    --border: #e9e1df;
+    --white: #ffffff;
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--dark); background: var(--white); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  section { padding: 128px 0; }
+
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--burgundy); display: block; }
+  .h2 { font-family: var(--serif); font-size: 40px; line-height: 48px; letter-spacing: -0.6px; color: var(--dark); font-weight: 400; }
+  .h2 em { font-style: italic; color: var(--burgundy); }
+  .body-17 { font-size: 17px; line-height: 27.63px; color: var(--burgundy-soft); }
+  .card { background: var(--white); border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 2px; font-size: 15px; font-weight: 600; border: none; transition: background .2s, transform .2s; white-space: nowrap; }
+  .btn-primary { background: var(--burgundy); color: var(--white); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); }
+  .btn-primary:hover { background: #3a0016; }
+  .btn-secondary { background: var(--white); color: var(--dark); box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+  .btn-secondary:hover { background: var(--cream); }
+  .arrow { font-size: 14px; }
+
+  /* HERO */
+  .hero { padding: 64px 0 128px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); padding: 6px 14px; border-radius: 12px; font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--burgundy); box-shadow: 0 1px 1px rgba(0,0,0,0.05); margin-bottom: 32px; }
+  .pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--burgundy); }
+  .hero h1 { font-family: var(--serif); font-size: 56px; line-height: 70px; letter-spacing: -1.12px; font-weight: 400; color: var(--dark); margin-bottom: 32px; }
+  .hero h1 em { font-style: italic; color: var(--burgundy); }
+  .hero-copy { font-size: 17px; line-height: 27.63px; color: var(--burgundy-soft); margin-bottom: 40px; max-width: 640px; }
+  .hero-copy strong { font-weight: 500; color: var(--dark); }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+  .value { display: flex; gap: 12px; align-items: center; font-size: 12px; font-weight: 500; letter-spacing: 0.48px; color: var(--burgundy-soft); }
+  .value .tick { color: var(--burgundy); font-weight: 600; }
+  .value b { font-weight: 600; color: var(--dark); }
+
+  .dossier-wrap { position: relative; height: 500px; }
+  .halo { position: absolute; width: 320px; height: 320px; top: -48px; right: -48px; border-radius: 12px; background: rgba(255,178,190,0.2); filter: blur(32px); }
+  .halo-2 { position: absolute; width: 288px; height: 288px; bottom: -32px; left: -32px; border-radius: 12px; background: rgba(255,219,205,0.3); filter: blur(20px); }
+  .dossier { position: absolute; top: 0; left: 0; right: 0; background: var(--white); border-radius: 4px; padding: 24px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 16px; }
+  .dossier-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .dossier-id { display: flex; gap: 12px; align-items: center; }
+  .avatar { width: 40px; height: 40px; border-radius: 12px; background: var(--accent); color: var(--burgundy); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 500; }
+  .dossier-name { font-size: 15px; font-weight: 600; color: var(--dark); }
+  .dossier-role { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy-soft); margin-top: 4px; }
+  .draft-tag { background: var(--accent); color: var(--burgundy); font-size: 11px; font-weight: 600; letter-spacing: 0.88px; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+  .note { padding: 12px; border-radius: 2px; display: flex; flex-direction: column; gap: 4px; }
+  .note.a { background: var(--cream); }
+  .note.b { background: var(--cream-2); }
+  .note-label { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy); }
+  .note.b .note-label { color: var(--burgundy-soft); }
+  .note-text { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 30px; color: var(--dark); }
+  .note.b .note-text { font-family: var(--sans); font-style: normal; font-size: 13px; line-height: 20px; color: var(--text); }
+  .dossier-foot { display: flex; justify-content: space-between; padding-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.88px; text-transform: uppercase; color: var(--burgundy-soft); }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--burgundy); margin-right: 6px; vertical-align: middle; }
+  .badge { position: absolute; background: var(--burgundy); color: var(--white); padding: 12px 16px; border-radius: 4px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
+  .badge-1 { top: -24px; right: -16px; }
+  .badge-1 .big { font-size: 15px; font-weight: 600; }
+  .badge-1 .small { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: #ffd9de; margin-top: 2px; }
+  .badge-2 { bottom: 40px; left: 12px; right: 0; max-width: 320px; background: var(--cream-2); color: var(--dark); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); display: flex; gap: 14px; align-items: center; padding: 16px; border-radius: 4px; }
+  .badge-2 .ico { width: 32px; height: 32px; border-radius: 12px; background: var(--burgundy); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .badge-2 .t1 { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy); }
+  .badge-2 .t2 { font-size: 13px; font-weight: 500; color: var(--dark); line-height: 16px; }
+
+  /* PROBLEM */
+  .problem { background: var(--white); }
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .problem .eyebrow { margin-bottom: 32px; }
+  .problem .h2 { margin-bottom: 32px; }
+  .problem-points { display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px; }
+  .problem-callout { background: rgba(240,219,212,0.6); padding: 24px; border-radius: 4px; }
+  .problem-callout .big { font-family: var(--serif); font-size: 28px; font-weight: 500; letter-spacing: -0.28px; color: var(--burgundy); line-height: 36px; margin-bottom: 8px; }
+  .problem-callout .caps { font-size: 18px; font-weight: 600; letter-spacing: 0.45px; text-transform: uppercase; color: var(--dark); }
+  .quote-card { background: var(--cream); border-radius: 4px; padding: 48px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); position: relative; }
+  .quote-card::before { content: ''; position: absolute; left: 0; top: 32px; width: 6px; height: 64px; background: var(--burgundy); border-radius: 0 2px 2px 0; }
+  .quote-card .kicker { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: 2.2px; text-transform: uppercase; color: var(--burgundy); margin-bottom: 23px; }
+  .quote-card blockquote { font-family: var(--serif); font-style: italic; font-size: 28px; line-height: 45.5px; letter-spacing: -0.28px; color: var(--dark); margin-bottom: 40px; }
+  .quote-attr { display: flex; gap: 16px; align-items: center; padding: 25px 16px 12px; background: rgba(244,236,234,0.5); border-radius: 2px; }
+  .quote-attr .avatar { background: var(--burgundy); color: var(--white); font-size: 22px; }
+  .quote-attr .n { font-size: 15px; font-weight: 600; color: var(--dark); }
+  .quote-attr .r { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy-soft); margin-top: 2px; }
+
+  /* ACHIEVEMENT */
+  .achievement { background: var(--cream); padding: 112px 0; }
+  .section-head { margin-bottom: 56px; }
+  .section-head .eyebrow { margin-bottom: 12px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-bottom: 56px; }
+  .stat { background: var(--white); padding: 24px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); }
+  .stat .num { font-family: var(--serif); font-size: 56px; line-height: 56px; letter-spacing: -1.12px; color: var(--burgundy); margin-bottom: 12px; }
+  .stat .lbl { font-size: 12px; font-weight: 500; letter-spacing: 0.6px; text-transform: uppercase; color: var(--burgundy-soft); margin-bottom: 8px; }
+  .stat .desc { font-size: 13px; line-height: 20px; color: var(--text); }
+  .proof-quote { background: var(--cream-2); max-width: 768px; padding: 30px 32px 32px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 35.75px; color: var(--dark); }
+
+  /* SERVICES */
+  .services { background: var(--cream-2); }
+  .services-head { max-width: 768px; margin-bottom: 64px; }
+  .services-head .eyebrow { margin-bottom: 12px; }
+  .services-head .h2 { margin-bottom: 12px; }
+  .services-head .sub { font-family: var(--sans); font-style: italic; font-weight: 600; font-size: 18px; letter-spacing: -0.18px; color: var(--burgundy); margin-bottom: 11px; padding-top: 4px; }
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 32px; }
+  .pillar { background: var(--white); padding: 40px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+  .pillar-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+  .pillar-num { font-family: var(--serif); font-size: 40px; line-height: 48px; color: var(--burgundy); letter-spacing: -0.6px; }
+  .pillar-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.1px; text-transform: uppercase; color: var(--burgundy-soft); }
+  .pillar-title { font-size: 18px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; color: var(--dark); margin-bottom: 12px; }
+  .pillar-sub { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 30.25px; color: var(--burgundy); margin-bottom: 3px; }
+  .pillar-desc { font-size: 15px; line-height: 24.38px; color: var(--text); }
+  .deliverable { background: var(--cream); padding: 24px 16px 16px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.88px; text-transform: uppercase; color: var(--burgundy-soft); line-height: 14px; }
+  .action-footer { background: var(--white); padding: 32px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .action-footer .t { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--dark); line-height: 28px; margin-bottom: 4px; }
+  .action-footer .s { font-size: 13px; line-height: 20px; color: var(--burgundy-soft); }
+
+  /* PROCESS */
+  .process { background: var(--white); }
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+  .step { background: var(--white); padding: 32px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); min-height: 265px; }
+  .step-num { width: 48px; height: 48px; border-radius: 12px; background: var(--accent); color: var(--burgundy); font-family: var(--serif); font-size: 22px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+  .step.dark .step-num { background: var(--burgundy); color: var(--white); }
+  .step-title { font-size: 18px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; color: var(--dark); margin-bottom: 8px; }
+  .step-desc { font-size: 15px; line-height: 24.38px; color: var(--burgundy-soft); }
+
+  /* AUDIT */
+  .audit { background: var(--cream-3); }
+  .audit-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
+  .audit-left .eyebrow { display: inline-block; background: var(--accent); padding: 6px 14px; border-radius: 12px; margin-bottom: 24px; }
+  .audit-left .h2 { margin-bottom: 24px; }
+  .audit-left .body-17 { margin-bottom: 40px; }
+  .audit-items { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .audit-item { background: var(--white); padding: 16px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); display: flex; gap: 16px; }
+  .audit-item .n { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--burgundy); letter-spacing: -0.18px; line-height: 24px; }
+  .audit-item h4 { font-size: 15px; font-weight: 600; color: var(--dark); line-height: 20px; margin-bottom: 3px; }
+  .audit-item p { font-size: 13px; line-height: 20px; color: var(--burgundy-soft); }
+  .audit-cta { display: flex; gap: 16px; align-items: center; }
+  .audit-cta .note-i { font-size: 13px; font-style: italic; color: var(--burgundy-soft); line-height: 20px; }
+  .audit-card { background: var(--white); padding: 32px; border-radius: 4px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 24px; }
+  .audit-card-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .audit-card-head .l { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--dark); }
+  .audit-card-head .l span { width: 12px; height: 12px; border-radius: 50%; background: var(--burgundy); display: inline-block; }
+  .audit-card-head .r { font-size: 11px; font-weight: 600; letter-spacing: 0.88px; text-transform: uppercase; color: var(--burgundy); }
+  .score { display: flex; flex-direction: column; gap: 6px; }
+  .score-row { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.48px; color: var(--dark); }
+  .score-row b { font-weight: 600; color: var(--burgundy); }
+  .bar { height: 8px; background: var(--cream-2); border-radius: 12px; overflow: hidden; }
+  .bar > div { height: 100%; background: var(--burgundy); border-radius: 12px; }
+  .score-stack { display: flex; flex-direction: column; gap: 20px; }
+  .snippet { background: var(--cream); padding: 24px 16px 16px; border-radius: 2px; }
+  .snippet .k { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy); margin-bottom: 4px; }
+  .snippet p { font-style: italic; font-size: 13px; line-height: 21px; color: var(--text); }
+  .facts { display: flex; gap: 16px; }
+  .fact { flex: 1; background: var(--cream-2); padding: 12px; border-radius: 2px; text-align: center; }
+  .fact .k { font-size: 11px; font-weight: 600; letter-spacing: 0.88px; text-transform: uppercase; color: var(--burgundy-soft); margin-bottom: 4px; }
+  .fact .v { font-size: 15px; font-weight: 600; color: var(--dark); }
+
+  /* PAYMENT FORM (lead capture, saves to Sheets then opens payment) */
+  .lead { background: var(--white); padding: 96px 0; }
+  .lead-box { max-width: 560px; margin: 0 auto; background: var(--white); border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05), 0 20px 25px -5px rgba(0,0,0,0.08); padding: 40px; }
+  .lead-box h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 40px; color: var(--dark); margin-bottom: 8px; text-align: center; }
+  .lead-box > p { font-size: 15px; line-height: 24px; color: var(--burgundy-soft); text-align: center; margin-bottom: 28px; }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+  .field input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 2px; font-family: var(--sans); font-size: 15px; color: var(--dark); background: var(--white); }
+  .field input:focus { outline: none; border-color: var(--burgundy); box-shadow: 0 0 0 3px rgba(80,2,29,0.08); }
+  .lead-submit { width: 100%; justify-content: center; margin-top: 8px; }
+  .lead-submit:disabled { opacity: .6; cursor: wait; }
+  .form-msg { margin-top: 16px; font-size: 14px; line-height: 20px; text-align: center; min-height: 20px; }
+  .form-msg.err { color: #8a1c1c; }
+  .form-msg.ok { color: #1f6b3a; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--white); }
+  .testimonials-head { text-align: center; max-width: 672px; margin: 0 auto 64px; }
+  .testimonials-head .eyebrow { margin-bottom: 12px; }
+  .testimonials-head .h2 { margin-top: 0; }
+  .t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .t-card { background: var(--white); padding: 40px; border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+  .t-mark { font-family: var(--serif); font-size: 40px; line-height: 40px; color: var(--accent); margin-bottom: 16px; }
+  .t-text { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 30.25px; color: var(--dark); }
+  .t-author { display: flex; gap: 12px; align-items: center; padding: 24px 12px 12px; background: rgba(244,236,234,0.4); border-radius: 2px; }
+  .t-author .avatar { width: 40px; height: 40px; background: var(--accent); color: var(--burgundy); font-size: 15px; font-family: var(--sans); font-weight: 600; }
+  .t-author .n { font-size: 15px; font-weight: 600; color: var(--dark); }
+  .t-author .r { font-size: 13px; color: var(--burgundy-soft); }
+
+  /* FAQ */
+  .faq { background: var(--cream); }
+  .faq-wrap { max-width: 896px; margin: 0 auto; padding: 0 48px; }
+  .faq-head { text-align: center; margin-bottom: 64px; }
+  .faq-head .eyebrow { margin-bottom: 12px; }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item { background: var(--white); border-radius: 4px; box-shadow: 0 1px 1px rgba(0,0,0,0.05); overflow: hidden; }
+  .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 32px; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 28px; color: var(--dark); }
+  .faq-q .chev { font-family: var(--sans); font-size: 12px; color: var(--burgundy-soft); transition: transform .25s; flex-shrink: 0; }
+  .faq-item.open .chev { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 0 32px 32px; font-size: 15px; line-height: 24.38px; color: var(--burgundy-soft); }
+  .faq-item.open .faq-a { display: block; }
+
+  /* FINAL CTA */
+  .final { background: var(--white); padding: 144px 0; }
+  .final-inner { max-width: 768px; margin: 0 auto; text-align: center; padding: 0 48px; }
+  .final-inner .eyebrow { margin-bottom: 16px; }
+  .final-inner .h2 { margin-bottom: 8px; }
+  .final-inner .h2.italic { font-style: italic; color: var(--burgundy); margin-bottom: 32px; }
+  .final-inner .body-17 { max-width: 576px; margin: 0 auto 40px; }
+  .final-inner .btn { margin-bottom: 24px; }
+  .final-inner .tag { font-size: 13px; font-style: italic; color: var(--text); }
+
+  /* FOOTER */
+  .footer { background: var(--cream-2); padding: 32px 0; }
+  .footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .footer .brand { font-size: 15px; font-weight: 600; color: var(--burgundy); }
+  .footer .brand span { font-weight: 400; font-size: 13px; color: var(--burgundy-soft); margin-left: 8px; }
+  .footer nav { display: flex; gap: 24px; }
+  .footer nav a { font-size: 11px; font-weight: 600; letter-spacing: 0.55px; text-transform: uppercase; color: var(--burgundy-soft); }
+  .footer nav a:hover { color: var(--burgundy); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .wrap, .faq-wrap, .final-inner { padding: 0 32px; }
+    .hero-grid, .problem-grid, .audit-grid { grid-template-columns: 1fr; gap: 48px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .pillars, .timeline, .t-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 46px; line-height: 56px; }
+  }
+  @media (max-width: 720px) {
+    section { padding: 80px 0; }
+    .wrap, .faq-wrap, .final-inner { padding: 0 20px; }
+    .hero h1 { font-size: 36px; line-height: 44px; }
+    .h2 { font-size: 30px; line-height: 38px; }
+    .stats { grid-template-columns: 1fr; }
+    .action-footer { flex-direction: column; align-items: flex-start; }
+    .quote-card { padding: 32px; }
+    .quote-card blockquote { font-size: 22px; line-height: 34px; }
+    .dossier-wrap { height: auto; display: flex; flex-direction: column; gap: 16px; }
+    .dossier { position: static; }
+    .badge { position: static; }
+    .halo, .halo-2 { display: none; }
+    .cta-row .btn { width: 100%; justify-content: center; }
+    .audit-cta { flex-direction: column; align-items: flex-start; }
+    .faq-q { font-size: 18px; padding: 24px; }
+    .faq-a { padding: 0 24px 24px; }
+    .lead-box { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill">From Invisible to In-Demand on LinkedIn</div>
+      <h1>Turn your LinkedIn into a <em>personal brand people remember</em>.</h1>
+      <p class="hero-copy">You bring the expertise. I’ll help you turn it into a LinkedIn presence that gets noticed, builds trust, and opens the right doors. From strategy and scripting to content management, I help you go from <strong>“I don’t know what to post”</strong> to <strong>“People are actually finding me.”</strong></p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#audit">Build My LinkedIn Presence <span class="arrow">→</span></a>
+        <a class="btn btn-secondary" href="#final">Book a 1:1 Call</a>
+      </div>
+      <div class="value"><span class="tick">✓</span><span><b>Strategy.</b> Content. Consistency. Growth. — all handled <b><i>with you</i></b>, not for you.</span></div>
+    </div>
+
+    <div class="dossier-wrap">
+      <div class="halo"></div>
+      <div class="halo-2"></div>
+      <div class="dossier">
+        <div class="dossier-head">
+          <div class="dossier-id">
+            <div class="avatar">CP</div>
+            <div>
+              <div class="dossier-name">[CLIENT NAME]</div>
+              <div class="dossier-role">Venture Principal • London</div>
+            </div>
+          </div>
+          <div class="draft-tag">Draft #04</div>
+        </div>
+        <div class="note a">
+          <div class="note-label">[Hook: Reframe Industry Myth]</div>
+          <div class="note-text">“Most executive communication fails not from lack of intelligence, but from excessive caution.”</div>
+        </div>
+        <div class="note b">
+          <div class="note-label">[Structure: 3-Step Proof Framework]</div>
+          <div class="note-text">Deconstruct the 2024 capital inflection point with private thesis notes, personal anecdotes, and verified portfolio benchmarks.</div>
+        </div>
+        <div class="dossier-foot">
+          <span><i class="dot"></i>Curated Tone: Measured Authority</span>
+          <span>Reading Time: 85s</span>
+        </div>
+      </div>
+      <div class="badge badge-1">
+        <div class="big">+240%</div>
+        <div class="small">Qualified Inbound DMs</div>
+      </div>
+      <div class="badge badge-2">
+        <div class="ico">✦</div>
+        <div>
+          <div class="t1">Milestone Unlocked</div>
+          <div class="t2">Keynote Invitation Received: Global Tech Summit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: THE PROBLEM -->
+<section class="problem">
+  <div class="wrap problem-grid">
+    <div>
+      <span class="eyebrow">The Strategic Disconnect</span>
+      <h2 class="h2">You already have the expertise. <em>The problem is getting people to see it.</em></h2>
+      <div class="problem-points">
+        <p class="body-17">Maybe you’re posting, but nobody seems to notice.</p>
+        <p class="body-17">Maybe you’ve got years of experience, but your profile doesn’t communicate the depth of what you’ve built.</p>
+        <p class="body-17">Or maybe you’re starting from zero and have absolutely no idea what to post without feeling performative.</p>
+      </div>
+      <div class="problem-callout">
+        <div class="big">You don’t need more noise.</div>
+        <div class="caps">You need a strategy.</div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div class="kicker">The Quiet Executive Dilemma</div>
+      <blockquote>“In competitive global markets, uncommunicated competence is practically indistinguishable from incompetence. The strongest leaders aren’t the loudest; they are simply the most precise.”</blockquote>
+      <div class="quote-attr">
+        <div class="avatar">ER</div>
+        <div>
+          <div class="n">Elena Roche</div>
+          <div class="r">Executive Editorial Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: ACHIEVEMENT -->
+<section class="achievement">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Numbers Speak. The Stories Speak Louder.</span>
+      <h2 class="h2" style="margin-top:12px">Helping people become visible for what<br>they already know.</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">0 → [X]</div><div class="lbl">Network Expansion</div><p class="desc">Followers and strategic connections cultivated from zero baseline.</p></div>
+      <div class="stat"><div class="num">[X]+</div><div class="lbl">Executive Portfolios</div><p class="desc">Personal brands strategised across venture, enterprise, and advisory.</p></div>
+      <div class="stat"><div class="num">[X]+</div><div class="lbl">Original Editorials</div><p class="desc">Original posts scripted, managed, and published without vanity fluff.</p></div>
+      <div class="stat"><div class="num">[X]</div><div class="lbl">Discreet Domains</div><p class="desc">Industries served including AI, Fintech, BioTech, and Family Offices.</p></div>
+    </div>
+    <div class="proof-quote">“LinkedIn growth isn’t just about chasing numbers. It’s about being seen by the right people — clients, recruiters, founders, collaborators, investors, or opportunities you didn’t even know were looking for you.”</div>
+  </div>
+</section>
+
+<!-- SECTION 4: SERVICES -->
+<section class="services">
+  <div class="wrap">
+    <div class="services-head">
+      <span class="eyebrow">Bespoke Advisory Method</span>
+      <h2 class="h2" style="margin-top:12px">From strategy to published post.</h2>
+      <div class="sub">You don’t need to become a full-time content creator.</div>
+      <p class="body-17">You already have the knowledge. You shouldn’t have to spend your evenings figuring out hooks, writing captions, staring at Canva, and wondering what to post tomorrow. That’s where I come in.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div>
+          <div class="pillar-top"><div class="pillar-num">01</div><div class="pillar-tag">Foundation</div></div>
+          <div class="pillar-title">Strategise</div>
+          <div class="pillar-sub">We figure out what you should be known for.</div>
+          <p class="pillar-desc">Your content needs direction before it needs more posts. We’ll define your positioning, audience, content pillars, and growth strategy so every post has a clear commercial or reputational purpose.</p>
+        </div>
+        <div class="deliverable">Deliverable: 12-Month Narrative Blueprint &amp; Audience Profiling</div>
+      </div>
+      <div class="pillar">
+        <div>
+          <div class="pillar-top"><div class="pillar-num">02</div><div class="pillar-tag">Craft</div></div>
+          <div class="pillar-title">Script</div>
+          <div class="pillar-sub">Your ideas → content people actually want to read.</div>
+          <p class="pillar-desc">You don’t need to sound like a LinkedIn influencer. I’ll help turn your experiences, expertise, opinions, and stories into content that sounds like you — just clearer, punchier, and far more compelling.</p>
+        </div>
+        <div class="deliverable">Deliverable: Bi-Weekly Ghostwritten Manuscripts &amp; Hook Matrix</div>
+      </div>
+      <div class="pillar">
+        <div>
+          <div class="pillar-top"><div class="pillar-num">03</div><div class="pillar-tag">Execution</div></div>
+          <div class="pillar-title">Manage</div>
+          <div class="pillar-sub">Consistency without the constant mental load.</div>
+          <p class="pillar-desc">From planning and scripting to publishing and keeping your content moving, I take care of the entire operational process so you can focus on what you actually do best: leading your company.</p>
+        </div>
+        <div class="deliverable">Deliverable: End-to-End Distribution, Cadence &amp; Comment Advisory</div>
+      </div>
+    </div>
+    <div class="action-footer">
+      <div>
+        <div class="t">Ready to claim your executive category?</div>
+        <div class="s">Intakes are strictly limited to five active advisory partnerships per quarter.</div>
+      </div>
+      <a class="btn btn-primary" href="#audit">See How We Can Work Together <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: PROCESS -->
+<section class="process">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <span class="eyebrow">Operational Flow</span>
+      <h2 class="h2" style="margin-top:12px">Less guessing. More direction.</h2>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discover</div>
+        <p class="step-desc">We understand your expertise, goals, audience, and where you want your LinkedIn presence to take you through an intensive diagnostic debrief.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Build</div>
+        <p class="step-desc">We shape your positioning, content pillars, voice, and strategy — then turn your raw ideas into polished, unassailable editorial pieces.</p>
+      </div>
+      <div class="step dark">
+        <div class="step-num">03</div>
+        <div class="step-title">Grow</div>
+        <p class="step-desc">We keep the content consistent, refine what works based on incoming market signals, and build a presence that compounds relentlessly over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: LINKEDIN AUDIT -->
+<section class="audit" id="audit">
+  <div class="wrap audit-grid">
+    <div class="audit-left">
+      <span class="eyebrow">The LinkedIn Reality Check</span>
+      <h2 class="h2">Not sure what’s holding your LinkedIn back? <em>Let’s find out.</em></h2>
+      <p class="body-17">Sometimes you don’t need more content. You need to know what’s actually wrong with the content you’re already creating. In this 1:1 LinkedIn Audit, we’ll look at your profile, positioning, content, and overall presence — and identify the gaps that are keeping you from getting the attention you deserve.</p>
+      <div class="audit-items">
+        <div class="audit-item"><div class="n">01</div><div><h4>Profile &amp; Headline Teardown</h4><p>Transforming passive CV summaries into high-converting executive landing pages.</p></div></div>
+        <div class="audit-item"><div class="n">02</div><div><h4>Historical Content Audit</h4><p>Analyzing past engagement patterns, drop-offs, and tonal dissonance across your posts.</p></div></div>
+        <div class="audit-item"><div class="n">03</div><div><h4>Positioning Calibration</h4><p>Clarifying your proprietary point of view so you don't parrot conventional industry talking points.</p></div></div>
+        <div class="audit-item"><div class="n">04</div><div><h4>Inbound Growth Strategy</h4><p>Targeting high-value followers, peer leaders, journalists, and key capital gatekeepers.</p></div></div>
+        <div class="audit-item"><div class="n">05</div><div><h4>Personalised Action Plan</h4><p>A bespoke PDF dossier with immediate adjustments, hook formulations, and 30-day priorities.</p></div></div>
+      </div>
+      <div class="audit-cta">
+        <a class="btn btn-primary" href="#lead">Book My LinkedIn Audit <span class="arrow">→</span></a>
+        <span class="note-i">One focused session. Clear answers. A strategy you can actually use.</span>
+      </div>
+    </div>
+
+    <div class="audit-card">
+      <div class="audit-card-head">
+        <div class="l"><span></span>Audit Rubric Preview</div>
+        <div class="r">Confidential Assessment</div>
+      </div>
+      <div class="score-stack">
+        <div class="score">
+          <div class="score-row"><span>Authority &amp; Profile Clarity</span><b>42% (Pre-Audit)</b></div>
+          <div class="bar"><div style="width:42%"></div></div>
+        </div>
+        <div class="score">
+          <div class="score-row"><span>Point of View Differentiation</span><b>28% (Pre-Audit)</b></div>
+          <div class="bar"><div style="width:28%"></div></div>
+        </div>
+        <div class="score">
+          <div class="score-row"><span>Audience Receptivity &amp; Inbound Potential</span><b>35% (Pre-Audit)</b></div>
+          <div class="bar"><div style="width:35%"></div></div>
+        </div>
+      </div>
+      <div class="snippet">
+        <div class="k">Diagnostician Note</div>
+        <p>“Current headline reads like a job search resume rather than an industry beacon. We will re-anchor your bio into an affirmative market thesis within 48 hours.”</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="k">Duration</div><div class="v">60 Minutes 1:1</div></div>
+        <div class="fact"><div class="k">Turnaround</div><div class="v">Dossier in 72h</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM: saves to Google Sheets via Apps Script, then opens the payment page -->
+<section class="lead" id="lead">
+  <div class="wrap">
+    <div class="lead-box">
+      <h3>Book Your LinkedIn Audit</h3>
+      <p>Share your details to reserve your session. You’ll be taken to secure payment next.</p>
+      <form id="leadForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" required>
+        </div>
+        <button class="btn btn-primary lead-submit" id="submitBtn" type="submit">Proceed to Payment <span class="arrow">→</span></button>
+        <div class="form-msg" id="formMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: TESTIMONIALS -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="testimonials-head">
+      <span class="eyebrow">Don’t Just Take My Word for It</span>
+      <h2 class="h2" style="margin-top:12px">The best part? Hearing what happens on the other side.</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <div><div class="t-mark">“</div><p class="t-text">[Client testimonial goes here — describe their experience, transformation, and tangible result after restructuring their profile.]</p></div>
+        <div class="t-author"><div class="avatar">[C]</div><div><div class="n">[Client Name]</div><div class="r">[Role], [Company]</div></div></div>
+      </div>
+      <div class="t-card">
+        <div><div class="t-mark">“</div><p class="t-text">[Client testimonial goes here — focus on the clarity and confidence they gained when articulating their point of view.]</p></div>
+        <div class="t-author"><div class="avatar">[C]</div><div><div class="n">[Client Name]</div><div class="r">[Role], [Company]</div></div></div>
+      </div>
+      <div class="t-card">
+        <div><div class="t-mark">“</div><p class="t-text">[Client testimonial goes here — focus on content consistency, visibility, or inbound business opportunities secured.]</p></div>
+        <div class="t-author"><div class="avatar">[C]</div><div><div class="n">[Client Name]</div><div class="r">[Role], [Company]</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: FAQ -->
+<section class="faq">
+  <div class="faq-wrap">
+    <div class="faq-head">
+      <span class="eyebrow">You’ve Got Questions.</span>
+      <h2 class="h2" style="margin-top:12px">Let’s clear a few things up.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">Do I need to spend hours writing content every week?<span class="chev">▼</span></button>
+        <div class="faq-a">Not at all. The entire purpose of this partnership is to extract your knowledge in a 45-minute asynchronous or live sprint every month, which is then translated into weeks of polished, structured content. You stay focused on your business; I handle the operational heavy lifting.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will the content actually sound like me?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">I don’t know what to post about. Can you still help?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How is this different from hiring a regular social media agency?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens during the 1:1 LinkedIn Audit?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How quickly can I expect to see results?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if I’m in a strictly regulated or niche B2B industry?<span class="chev">▼</span></button>
+        <div class="faq-a">[Answer to be added]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: FINAL CTA -->
+<section class="final" id="final">
+  <div class="final-inner">
+    <span class="eyebrow">Begin the Conversation</span>
+    <h2 class="h2">You already have something worth saying.</h2>
+    <h2 class="h2 italic">Now let’s make sure the right people actually see it.</h2>
+    <p class="body-17">Whether you’re starting from zero, stuck with inconsistent content, or ready to turn LinkedIn into a serious growth channel, there’s a strategy for where you are right now.</p>
+    <a class="btn btn-primary" href="#lead">Let’s Grow Your LinkedIn <span class="arrow">→</span></a>
+    <p class="tag">No empty promises. No copy-paste personal brand. Just a LinkedIn presence built around you.</p>
+  </div>
+</section>
+
+<!-- SECTION 10: FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="brand">[CLIENT NAME]<span>• Strategise. Script. Show up. Grow.</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#audit">Audit</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // ---- Config ----
+  const SCRIPT_URL  = 'https://script.google.com/macros/s/AKfycbx0Jq-JYr_Idn_yP-6OyACO4C0-UHRSWj6tgCoVrMIM6q-SYjmBsgVzkAx2WE3OlRQImA/exec';
+  const PAYMENT_URL = 'https://payments.cashfree.com/forms/getaudit';
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+  });
+
+  // ---- Lead form ----
+  const form = document.getElementById('leadForm');
+  const msg  = document.getElementById('formMsg');
+  const btn  = document.getElementById('submitBtn');
+
+  function setMsg(text, cls) {
+    msg.textContent = text;
+    msg.className = 'form-msg ' + (cls || '');
+  }
+
+  function showSuccess() {
+    setMsg('Details saved. Opening secure payment…', 'ok');
+    btn.disabled = false;
+    window.open(PAYMENT_URL, '_blank');
+  }
+
+  function showError() {
+    btn.disabled = false;
+    setMsg('Something went wrong. Please try again.', 'err');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name  = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    if (!name || !email || !phone) {
+      setMsg('Please fill in name, email and phone.', 'err');
+      return;
+    }
+
+    btn.disabled = true;
+    setMsg('Saving your details…', '');
+
+    const url = SCRIPT_URL + '?' + new URLSearchParams({ name, email, phone });
+
+    fetch(url, { method: 'GET', mode: 'no-cors' })
+      .then(() => showSuccess())
+      .catch(() => showError());
+  });
+</script>
+</body>
+</html>
